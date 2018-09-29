@@ -28,8 +28,14 @@ const cargarDB = () => {
     }
 }
 
+const getListado = () => {
+    cargarDB();
+    return listadoPorHacer;
+}
+
 module.exports = {
     crear,
     guardarDB,
-    cargarDB
+    cargarDB,
+    getListado
 }
