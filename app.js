@@ -1,9 +1,11 @@
 const argv = require('./config/yargs').argv;
+const porHacer = require('./por-hacer/por-hacer')
 
 let comando = argv._[0];
 switch (comando) {
     case 'crear':
-        console.log('Crear una tarea');
+        let tarea = porHacer.crear(argv.descripcion);
+        console.log(tarea, argv);
         break;
     case 'listar':
         console.log('Listar la lista de tareas');
