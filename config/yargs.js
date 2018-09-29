@@ -1,21 +1,21 @@
 const argv = require('yargs')
     .command('crear', 'Añadir una tarea a la lista de tareas',
         {descripcion: {
-            demmand: true,
+            demand: true,
             alias: 'd',
-            description: 'Decripción de la tarea'
+            desc: 'Decripción de la tarea'
         }})
     .command('listar', 'Listar las tareas pendientes')
     .command('actualizar', 'Definir si una tarea está completada', {
         descripcion: {
-            demmand: true,
+            demand: true,
             alias: 'd',
-            description: 'Decripción de la actividad a señalar como realizada'
+            desc: 'Decripción de la actividad a señalar como realizada'
         },
         completado: {
             default: true,
             alias: 'c',
-            description: 'Marcar como completada la tarea'
+            desc: 'Marcar como completada la tarea'
         }
         })
     .help()

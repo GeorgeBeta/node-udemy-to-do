@@ -5,13 +5,21 @@ let listadoPorHacer = [];
 const crear = (descripcion) => {
     let porHacer = {
         descripcion: descripcion,
-        compeltado: false
-    }
-
+        completado: false
+    };
     listadoPorHacer.push(porHacer);
+    guardarDB();
     return porHacer;
 }
 
+const guardarDB = () => {
+    let data = JSON.stringify(listadoPorHacer);
+    fs.writeFile('./db/data.json', data, (err) => {
+        if(err) console.log(`Error ${err}`);
+    });
+}
+
 module.exports = {
-    crear
+    crear,
+    guardarDB
 }
