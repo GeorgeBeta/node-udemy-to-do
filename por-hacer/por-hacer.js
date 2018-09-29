@@ -7,6 +7,7 @@ const crear = (descripcion) => {
         descripcion: descripcion,
         completado: false
     };
+    cargarDB();
     listadoPorHacer.push(porHacer);
     guardarDB();
     return porHacer;
@@ -19,7 +20,16 @@ const guardarDB = () => {
     });
 }
 
+const cargarDB = () => {
+    try {
+        listadoPorHacer = require('../db/data.json');
+    } catch (error) {
+        listadoPorHacer = [];
+    }
+}
+
 module.exports = {
     crear,
-    guardarDB
+    guardarDB,
+    cargarDB
 }
